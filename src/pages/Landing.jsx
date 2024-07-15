@@ -3,6 +3,7 @@ import News from './News'
 import  epic  from "../assets/Epic_Games_logo.svg.png"
 import  ea  from "../assets/ea-games-logo-png-transparent.png"
 import  company  from "../assets/image.png"
+import { Link } from 'react-router-dom'
 const Landing = () => {
   return (
     <div className="row">
@@ -18,13 +19,14 @@ const Landing = () => {
 
 
 
-      <li className="">
-        <a href="#search" className="link__search nav__link">
+      
+        
+        <Link to="./games">
           <button className="button__search button__popular click shadowb">
             Search Popular Games
-          </button></a
-        >
-      </li>
+          </button>
+          </Link>
+      
 
       <div className="gaming__companies">
         <figure className="companies__imgs">

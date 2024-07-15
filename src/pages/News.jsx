@@ -1,24 +1,36 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const News = () => {
+  const navigate = useNavigate();
   const [id, setId] = useState("");
-  const [index, setIndex] = useState("0");
+  const [index, setIndex] = useState("");
   const [loading, setLoading] = useState(true);
   const [news, setNews] = useState([]);
   function moveRight() {
-    if (index === 15){
-        setIndex(0)
+    if (index === 30) {
+      setIndex(0);
+    } else {
+      let temp = index + 1;
+      setLoading(true);
+      setIndex(temp);
+      setLoading(false);
     }
-    else{
-    let temp = index + 1
-    setLoading(true)
-    setIndex(temp)
-    setLoading(false)
+  }
+  function moveLeft() {
+    if (index === 0) {
+      setIndex(30);
+    } else {
+      let temp = index + 1;
+      setLoading(true);
+      setIndex(temp);
+      setLoading(false);
     }
-}
+  }
   async function fetchNews() {
+    setIndex(0);
     setLoading(true);
     const options = {
       method: "GET",
@@ -39,18 +51,18 @@ const News = () => {
     fetchNews();
   }, []);
   return (
-        <>
+    <>
       {loading ? (
         <div className="news__window">
-        <div className="spinner__wrapper-news">
-          <FontAwesomeIcon
-            icon="fa-solid fa-spinner"
-            className="fas fa-spinner fa-spinner--news"
-          />
-        </div>
+          <div className="spinner__wrapper-news">
+            <FontAwesomeIcon
+              icon="fa-solid fa-spinner"
+              className="fas fa-spinner fa-spinner--news"
+            />
+          </div>
         </div>
       ) : (
-        <div className="news__window">
+        <div className="news__window click">
           <h1 className="news__title shadowb">{news[index].title}</h1>
           <div className="new__img--wrapper">
             <figure className="news_imgs">
@@ -58,9 +70,11 @@ const News = () => {
                 src={news[index].main_image}
                 className="news__img"
                 alt=""
+                onClick={() => navigate(`./games/${news[index].id}`)}
               ></img>
               <div className="arrow__wrapper">
                 <FontAwesomeIcon
+                onClick={() => moveLeft()}
                   icon="fa-solid fa-caret-left"
                   className="fa-solid fa-caret-left arrow arrow-left click"
                 />
@@ -68,7 +82,7 @@ const News = () => {
                   {news[index].short_description}
                 </h2>
                 <FontAwesomeIcon
-                  onClick={()=>moveRight()}
+                  onClick={() => moveRight()}
                   icon="fa-solid fa-caret-right"
                   className="fa-solid fa-caret-right arrow arrow-right click"
                 />

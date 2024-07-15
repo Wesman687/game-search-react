@@ -211,15 +211,13 @@ News
     justify-content: center;
 }
 .fa-spinner--games {
-    display: none !important;
     color: #fff;
     font-size: 150px;
     z-index: 3;
     margin-left: 42px;
+    display: none;
 }
-.news__loading .fa-spinner--games {
-    display: flex !important;
-}
+
 .news__subtitle {
     color: #fff;
     width: 60%;   
@@ -368,7 +366,7 @@ Search area
     align-items: center;
     flex-direction: column;
     box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
-    padding: 0;
+    padding: 96px 32px;
 }
 .input__wrapper {
     
@@ -380,12 +378,19 @@ Search area
     display: flex;
     justify-content: space-between;
     padding: 10px 0px 10px 0px;
-    transition: width 0.4s ease-in-out
+    transition: width 0.4s ease-in-out;
+    margin: 32px 0px;
 }
 .input__bar:focus  {
     background-color: rgb(63, 8, 8);
 }
-
+.search__subtitle--text {
+  padding: 48px 0px;
+}
+.search__subtitle--text, .search__title--text {
+  width: 70%;
+  text-align: center;
+}
 .input__bar {
     padding-left: 24px;
     width: 90%;
@@ -414,11 +419,6 @@ Search area
 }
 
 
-.search__wrapper {
-    display: flex;
-    align-items: center;
-    margin-bottom: 32px;
-}
 .game__filter {
     display: flex;
     margin: 32px;
@@ -427,33 +427,7 @@ Search area
     margin-right: 12px;
 }
 
-.toggle {
-    margin: 24px;
-    height: 48px;
-    font-size: 24px;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 12px;
-    color: #fff;
-    background-color: #2b0202;
-    text-shadow:
-    0px -1px 0 rgb(252, 0, 0),  
-     1px 0px 0 rgb(252, 0, 0),
-     0px 0px 0 rgb(252, 0, 0),
-      0px 1px 0 rgb(252, 0, 0);
-}
 
-.toggle__label { 
-    font-size: 32px;
-    width: 35%;
-    font-weight: bold;
-}
-.toggle__label--pc {
-    width: 40%;
-}
-.label__wrapper {
-    margin-right: 32px;
-}
 
 
 /****
