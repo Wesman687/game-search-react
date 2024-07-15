@@ -12,16 +12,16 @@ const Nav = () => {
         <p className="nav__link shadowb">Over 100k Games to Choose from!!!</p>
 
         
-          <Link to="./games">
+          
             <button className="button__search nav__search click shadowb">
               Browse Games
             </button>
-          </Link>
-          <Link to="/">
+          
+          
             <button className="button__search nav__search click shadowb">
               Home 
             </button>
-          </Link>
+          
         
       </div>
     </div>

@@ -9,28 +9,34 @@ const Game = () => {
   const [loading, setLoading] = useState(true);
   const [sortedGames, setSort] = useState([]);
   const [search, setSearch] = useState("");
-  const [tagArray, setTag] = useState([]);
+
   async function searchBar() {
+    const searchText = search.split(' ').join()
     const tags =
       "mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts";
     if (search === "") {
       return;
     }
-    if ((tags.toUpperCase().search(search.toUpperCase())) && search.toUpperCase() !== "RPG"){
-      fetchTag(search);
-      setSort(tagArray.slice(0, 6));
+    if (
+      isNaN(search) &&
+      tags.toUpperCase().search(search.toUpperCase()) !== -1
+    ) {
+      await fetchTag(search);
     } else if (search.length === 4 && !isNaN(search)) {
       setSort(games.filter((game) => search === game.release_date.slice(0, 4)));
     }
     else {
-        let tempArray = games.filter(game =>  game.title.toUpperCase().match(search.toUpperCase()))
-        let secondTemp = games.filter(game =>((game.short_description.toUpperCase().match(search.toUpperCase()) && (game.title !== tempArray[0].title))))
-        for (let i=0; i < 6; i++){
-            tempArray.push(secondTemp[i])
-        }
-        setSort(tempArray.slice(0,6))
+        let tempArray = []
+        let secondTemp = []
+        tempArray = games.filter(game => game.title.toUpperCase().match(search.toUpperCase()))
+        secondTemp = games.filter(game =>((game.short_description.toUpperCase().match(searchText.toUpperCase()))))
+        if (tempArray.length > 0 || secondTemp.length > 0)
+        setSort(tempArray.concat(secondTemp).slice(0,6))
+        else
+        alert(`Unable to find your search, please search again`)
     }
   }
+
   async function fetchTag(tag) {
     const options = {
       method: "GET",
@@ -46,17 +52,19 @@ const Game = () => {
 
     try {
       const response = await axios.request(options);
-      setTag(response.data);
+      setSort(response.data.slice(0, 6));
     } catch (error) {
       console.error(error);
     }
   }
+
   async function fetchGames() {
     setLoading(true);
     const options = {
       method: "GET",
       url: "https://mmo-games.p.rapidapi.com/games",
-      platform: "browser",
+      params: {
+      },
       headers: {
         "x-rapidapi-key": "477cc3938dmsh3d6acb4fdba02afp1d7380jsn03a9325cb48a",
         "x-rapidapi-host": "mmo-games.p.rapidapi.com",
@@ -65,20 +73,24 @@ const Game = () => {
 
     try {
       const response = await axios.request(options);
-      setGames(response.data);
+      if (response.data.length > 0) {
+        setGames(response.data);
+        setSort(response.data.slice(0, 6));
+      }
+      console.log(response.data);
     } catch (error) {
       console.error(error);
     }
-    setSort(games.slice(0, 6));
+
     setLoading(false);
   }
 
   useEffect(() => {
     fetchGames();
   }, []);
+
   return (
-    <div className="row">
-      <Nav />
+    <div className="row">      
       <div className="container search__container">
         <h1 className="search__title--text shadoww">
           Search through our massive search list, to find your new gaming home.
@@ -86,19 +98,24 @@ const Game = () => {
         <h2 className="search__subtitle--text shadoww">
           We have something for everyone, search for your favorite game here.
         </h2>
-        <div className="input__wrapper">
+        <form
+          className="input__wrapper"
+          onSubmit={(event) => {
+            event.preventDefault();
+            searchBar();
+          }}
+        >
           <input
-            onKeyDown={(event) => event.key === "Enter" && searchBar()}
-            onChange={(event) => setSearch(event.target.value)}
             type="text"
             id="input"
             placeholder="Search for Game here"
             className="input__bar"
+            onChange={(event) => setSearch(event.target.value)}
           />
-          <button onClick={() => searchBar()} className="submit__btn">
+          <button type="submit" className="submit__btn">
             Submit
           </button>
-        </div>
+        </form>
         <div className="popular__games games">
           {loading ? (
             <FontAwesomeIcon
@@ -106,25 +123,25 @@ const Game = () => {
               className="fa-spinner--games"
             />
           ) : (
-            sortedGames.map((games) => (
-              <div className="popular__game click">
-                <h3 className="game__link--title shadoww">{games.title}</h3>
+            sortedGames.map((game, index) => (
+              <div key={index} className="popular__game click">
+                <h3 className="game__link--title shadoww">{game.title}</h3>
                 <div className="popular__img--wrapper">
                   <figure className="popular__imgs">
                     <img
-                      src={games.thumbnail}
+                      src={game.thumbnail}
                       className="popular__img"
                       alt=""
                     ></img>
                   </figure>
                 </div>
                 <div className="popular__text--wrapper">
-                  <a href="${games.game_url}" className="game__link--text">
-                    {games.game_url}
+                  <a href={game.game_url} className="game__link--text">
+                    {game.game_url}
                   </a>
-                  <p className="game__genre--text ">{games.genre}</p>
+                  <p className="game__genre--text ">{game.genre}</p>
                   <p className="game__developer--text shadoww">
-                    {games.publisher}
+                    {game.publisher}
                   </p>
                 </div>
               </div>
@@ -132,7 +149,6 @@ const Game = () => {
           )}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
