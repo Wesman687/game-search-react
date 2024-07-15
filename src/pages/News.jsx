@@ -74,7 +74,7 @@ const News = () => {
               ></img>
               <div className="arrow__wrapper">
                 <FontAwesomeIcon
-                onClick={() => moveLeft()}
+                  onClick={() => moveLeft()}
                   icon="fa-solid fa-caret-left"
                   className="fa-solid fa-caret-left arrow arrow-left click"
                 />

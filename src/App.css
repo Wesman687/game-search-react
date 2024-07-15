@@ -215,7 +215,6 @@ News
     font-size: 150px;
     z-index: 3;
     margin-left: 42px;
-    display: none;
 }
 
 .news__subtitle {
@@ -300,6 +299,7 @@ Popular Games
     justify-content: center;
 }
 .popular__games {
+    
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
