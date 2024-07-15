@@ -1,38 +1,566 @@
-.App {
-  text-align: center;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    text-wrap: wrap;
+    font-family: "Roboto", sans-serif;
+}
+body {
+  
+  background-color: rgb(202, 234, 241);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li {
+    list-style-type: none;
+}
+h1 {
+    text-align: center;
+    font-size: 52px;
+    font-weight: bold;
+    color: rgb(247, 4, 4);
+
+}
+.shadowb {
+    text-shadow:
+    2px 1px 0 #000,  
+     1px 0px 0 #000,
+     1px 1px 0 #000,
+      0px 0px 0 #000;
+}
+.shadoww {
+    text-shadow:
+    0px -1px 0 #fff,  
+     1px 0px 0 #fff,
+     0px 0px 0 #fff,
+      0px 1px 0 #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2 {
+    font-size: 38px;
+    color: rgb(170, 0, 0);
+}
+h3 {
+    font-size: 32px;
+    color: rgb(247, 4, 4);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+p {
+    font-size: 20px;
+    color: rgb(247, 4, 4);
+    
+}
+.row {
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: rgb(202, 234, 241);
+}
+
+.container {
+    display: flex;
+    background-color: rgb(202, 234, 241);
+}
+.click:hover {
+    cursor: pointer;
+}
+.button__search {
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 18px;
+    background-color: rgb(253, 0, 0);
+    color: #fff;
+    border: 4px solid white;
+    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+}
+.nav__search {
+    box-shadow: rgb(0, 0, 0) 4px 4px 15px .2px;
+}
+.button__search:hover {
+    background-color: #fff;
+    border: 4px solid rgb(253, 0, 0);
+    color: rgb(253, 0, 0);
+}
+.fa-spinner {
+    animation: rotate 600ms infinite linear;
+}
+
+@keyframes rotate {
+    0% { 
+        transform: rotate(0)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+/***  
+
+Nav
+
+*/
+
+
+#footer {
+    background-color: #2b0202;
+}
+.nav__container {
+  justify-content: space-between;
   align-items: center;
+  padding: 16px 32px;  
+  box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+  background-color: #97e1ff;
+}
+
+
+
+.logo__img { 
+  width: 150px;
+  
+}
+.nav__links {
+  display: flex;
+  padding-right: 32px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.nav__link {
+  padding: 18px;
+  color: rgb(253, 0, 0);
+  font-size: 48px;
+  font-weight: bold;
+}
+.nav__search {
+  box-shadow: rgb(0, 0, 0) 4px 4px 15px .2px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+/***
+
+Landing
+
+**/
+
+.landing__container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+    
+}
+
+.button__popular {
+    margin: 102px 0px;
+    padding: 24px 48px;
+    font-size: 32px;
+    
+}
+
+.gaming__companies {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+
+}
+.companies__img {
+    width: 100px;
+    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+    transition: 350ms all ease;
+    padding: 32px;
+}
+
+
+.companies__img:hover {
+    transform: scale(115%);
+}
+/***
+
+News
+
+**/
+
+.spinner__wrapper-news {
+    width: 100%;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fas {
+    color: #fff;
+    font-size: 250px;
+    position: absolute;
+    z-index: 3;
+    
+}
+.news__loading .fa-spinner--news {
+    display: flex !important;
+}
+.spinner__wrapper--games {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fa-spinner--games {
+    display: none !important;
+    color: #fff;
+    font-size: 150px;
+    z-index: 3;
+    margin-left: 42px;
+}
+.news__loading .fa-spinner--games {
+    display: flex !important;
+}
+.news__subtitle {
+    color: #fff;
+    width: 60%;   
+    font-size: 22px;
+}
+.news__title{
+  font-size: 28px;
+}
+.news__url {
+    font-size: 20px;
+    margin: 32px 0;
+    color: rgb(170, 0, 0);
+}
+
+.news__container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 350ms;
+    width: 100%;
+    padding: 0;
+}
+.arrow {    
+    z-index: 100;
+    font-size: 100px;
+    color: white;
+}
+.arrow-right {
+    right: 15%;
+}
+.arrow__wrapper {
+    margin-top: 18px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+.fa-solid:hover {
+    color: rgb(253, 0, 0);
+}
+.new__img--wrapper {
+    display: flex;
+}
+
+.news__window {
+    flex-direction: column;
+    width: 50%;
+    display: flex;
+    background-color: #2b0202;
+    border: 5px solid rgb(7, 6, 6);
+    border-radius: 24px;
+    align-items: center;
+    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+    margin-top: 32px;
+    padding: 32px;
+    
+}
+.news__img {
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: #fff 0px 0px 10px 10px;
+    position: relative;
+}
+.news__url {
+    margin: 32px;
+}
+
+
+/***
+
+Popular Games
+
+**/
+
+.popular__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.popular__games {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #2b0202;
+    border: 5px solid rgb(7, 6, 6);
+    border-radius: 24px;
+    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+    
+    
+}
+
+.popular__game {   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px solid rgb(252, 0, 0);
+    width: 375px;
+    height: 500px;
+    background-color: #000;
+    border-radius: 18px;
+    margin: 32px 22px;
+    transition: 350ms all ease;
+    box-shadow: rgba(255, 4, 4, 0.342) 10px 20px 50px .2px;
+    
+}
+
+.popular__img--wrapper {
+    display: flex;
+}
+.popular__img {
+    width: 100%;
+    transform: scale(120%);
+}
+.popular__game:hover {
+    transform: scale(135%);  
+    z-index: 1;
+}
+.game__genre--text, .game__developer--text {
+    font-weight: bold;
+}
+.game__link--text {
+    width: 100%;
+    font-size: 12px;
+    color: rgb(247, 4, 4);
+    margin: 18px 0;
+}
+.popular__text--wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+
+
+/*****
+
+Search area 
+
+***/
+.search__container {
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+    padding: 0;
+}
+.input__wrapper {
+    
+    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+    width: 90%;
+    border: 2px solid black;
+    border-radius: 14px;
+    background-color: #2b0202;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px 10px 0px;
+    transition: width 0.4s ease-in-out
+}
+.input__bar:focus  {
+    background-color: rgb(63, 8, 8);
+}
+
+.input__bar {
+    padding-left: 24px;
+    width: 90%;
+    border: none;
+    outline: none;
+    background-color: #2b0202;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+.submit__btn {
+    padding: 22px 30px;
+    font-size: 24px;
+    border-radius: 14px;
+    margin-right: 12px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #b80606;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.submit__btn:hover {
+    background-color: #fff;
+    color: #f70404;
+}
+
+
+.search__wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+.game__filter {
+    display: flex;
+    margin: 32px;
+}
+.game__search {
+    margin-right: 12px;
+}
+
+.toggle {
+    margin: 24px;
+    height: 48px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 12px;
+    color: #fff;
+    background-color: #2b0202;
+    text-shadow:
+    0px -1px 0 rgb(252, 0, 0),  
+     1px 0px 0 rgb(252, 0, 0),
+     0px 0px 0 rgb(252, 0, 0),
+      0px 1px 0 rgb(252, 0, 0);
+}
+
+.toggle__label { 
+    font-size: 32px;
+    width: 35%;
+    font-weight: bold;
+}
+.toggle__label--pc {
+    width: 40%;
+}
+.label__wrapper {
+    margin-right: 32px;
+}
+
+
+/****
+
+Footer
+
+****/
+.footer__text {
+    font-size: 28px;
+    text-align: center;
+}
+.footer__container {
+    background-color: #2b0202;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+}
+@media (max-width: 850px) {
+    .search__wrapper {
+        display: flex;
+        padding-top: 18px;
+        align-items: center;
+        justify-content: center;
+    }
+    .label__wrapper {
+        display: flex;
+        align-items: center;
+        margin: 0;
+
+    }
+    .submit__btn {
+        font-size: 12px;
+    }
+    .input__bar {
+        font-size: 12px;
+    }
+    .news__window {
+       padding: 0; 
+    }
+    .news__title {
+        font-size: 16px;
+    }
+    .news__subtitle {
+        font-size: 12px;
+    }
+    .fa-solid {
+        font-size: 20px;
+    }
+    .news__url {
+        font-size: 10px;
+    }
+    .nav__container {
+        flex-direction: column;
+    }
+    .nav__link {
+        font-size: 32px;
+    }
+    .search__title--text {
+        font-size: 28px;
+    }
+    .search__subtitle--text {
+        font-size: 24px;
+    }
+    .search__container {
+        padding: 32px;
+    }
+    .toggle__label {
+        font-size: 24px;
+    }
+    .popular__games--title {
+        font-size: 28px;
+    }
+    .gaming__companies {
+        flex-direction: column;
+    }
+    .button__search {
+        width: 70%;
+        font-size: 18px;
+    }
+    .landing__text--subtitle {
+        font-size: 22px;
+    }
+    .landing__text--title {
+        font-size: 24px;
+    }
+    .game__link--title {
+        font-size: 20px;
+    }
+    .popular__img {
+        width: 75%;
+    }
+
+    .nav__link {
+        font-size: 24px;
+        text-align: center;
+    }
+    .button__search { 
+        font-size: 16px;
+    }
+
+    .toggle {
+        font-size: 16px;
+    }
+    .toggle__label {
+        font-size: 16px;
+    }
+
 }
