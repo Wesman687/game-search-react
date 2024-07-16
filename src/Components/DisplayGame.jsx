@@ -38,7 +38,7 @@ const DisplayGame = () => {
     <>
       
       <div className="row">
-        <div className="container">
+        <div className="container display__container">
           <div className="display__wrapper">
           {loading?<div><FontAwesomeIcon icon="fas fa-spinner" className="fa-spinner--games" /></div>:
           <>

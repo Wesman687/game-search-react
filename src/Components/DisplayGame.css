@@ -3,7 +3,8 @@
     max-width: 1400px;
     margin: 0 auto;
 }
-.container {
+.display__container {
+    padding: 32px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
