@@ -1,14 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import Nav from "./Nav";
-import Footer from "./Footer";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Game = () => {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sortedGames, setSort] = useState([]);
   const [search, setSearch] = useState("");
+  const navigate = useNavigate()
 
   async function searchBar() {
     const searchText = search.split(' ').join()
@@ -17,10 +17,7 @@ const Game = () => {
     if (search === "") {
       return;
     }
-    if (
-      isNaN(search) &&
-      tags.toUpperCase().search(search.toUpperCase()) !== -1
-    ) {
+    if ((search.toUpperCase() !== "RPG") && tags.toUpperCase().search(search.toUpperCase()) !== -1) {
       await fetchTag(search);
     } else if (search.length === 4 && !isNaN(search)) {
       setSort(games.filter((game) => search === game.release_date.slice(0, 4)));
@@ -77,7 +74,6 @@ const Game = () => {
         setGames(response.data);
         setSort(response.data.slice(0, 6));
       }
-      console.log(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -124,7 +120,7 @@ const Game = () => {
             />
           ) : (
             sortedGames.map((game, index) => (
-              <div key={index} className="popular__game click">
+              <div key={index} className="popular__game click" onClick={() => navigate(`./${game.id}`)}>
                 <h3 className="game__link--title shadoww">{game.title}</h3>
                 <div className="popular__img--wrapper">
                   <figure className="popular__imgs">

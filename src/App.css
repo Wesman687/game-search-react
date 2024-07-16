@@ -103,9 +103,7 @@ Nav
 */
 
 
-#footer {
-    background-color: #2b0202;
-}
+
 .nav__container {
   justify-content: space-between;
   align-items: center;
@@ -114,8 +112,13 @@ Nav
   background-color: #97e1ff;
 }
 
-
-
+.button__container {
+  display: flex;
+  gap: 18px;
+}
+.home {
+  padding: 12px 24px !important;
+}
 .logo__img { 
   width: 150px;
   
@@ -299,7 +302,6 @@ Popular Games
     justify-content: center;
 }
 .popular__games {
-    
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -379,7 +381,7 @@ Search area
     justify-content: space-between;
     padding: 10px 0px 10px 0px;
     transition: width 0.4s ease-in-out;
-    margin: 32px 0px;
+    margin: 64px 0px;
 }
 .input__bar:focus  {
     background-color: rgb(63, 8, 8);
