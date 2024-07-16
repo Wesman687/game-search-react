@@ -112,7 +112,7 @@ const Game = () => {
             Submit
           </button>
         </form>
-        <div className="popular__games games">
+        <div className="popular__games">
           {loading ? (
             <FontAwesomeIcon
               icon="fas fa-spinner"

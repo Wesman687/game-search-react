@@ -1,17 +1,15 @@
 
 .row {
     max-width: 1400px;
-    width: 100%;
     margin: 0 auto;
 }
 .container {
-    padding: 32px 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    
     box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
 }
+
 .display__wrapper {
     display: flex;
     width: 80%;
@@ -49,6 +47,8 @@
 .screenshots {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 .screen__image {
     width: 30%;

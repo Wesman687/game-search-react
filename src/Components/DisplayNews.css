@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    padding: 48px;
 }
 .dn__content {
     display: flex;
@@ -17,7 +18,6 @@
 .dn__container {
     display: flex;
     align-items: center;
-    padding: 64px;
     text-align: center;
     width: 100%;
 }
