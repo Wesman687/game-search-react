@@ -12,7 +12,6 @@ const ContextProvider = (props) => {
       setNews(await fetchNews())
       setLoading(false)
       setIndex(0)
-      console.log(news, "test")
     }
 
     const moveRight = () =>{

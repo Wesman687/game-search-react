@@ -14,7 +14,6 @@ export async function fetchNews() {
       try {
           const response = await axios.request(options);
           array = response.data
-          console.log(response.data);
       } catch (error) {
           console.error(error);
       }

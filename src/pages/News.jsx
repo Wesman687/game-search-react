@@ -1,10 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Context } from "../newsFunction/ContextProvider";
 
 const News = () => {
-  const navigate = useNavigate();
   const { loading, index, news, moveLeft, moveRight, getNews } = useContext(Context)
   
   useEffect(() => {

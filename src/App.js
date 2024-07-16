@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import Game from "./pages/Game.jsx";
-import News from "./pages/News.jsx";
 import DisplayGame from './Components/DisplayGame.jsx'
 import Nav from "./pages/Nav.jsx";
 import Footer from "./pages/Footer.jsx";
