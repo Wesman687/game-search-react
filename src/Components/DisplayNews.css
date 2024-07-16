@@ -1,0 +1,19 @@
+.dn__wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.dn__content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.dn__container {
+    padding: 64px;
+    text-align: center;
+}
+.dn__link {
+    padding: 32px 0px;
+    font-size: 18px;
+}

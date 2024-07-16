@@ -5,14 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import ContextProvider from './newsFunction/ContextProvider';
 
 library.add(fas)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <ContextProvider>
     <App />
-  </React.StrictMode>
+    </ContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

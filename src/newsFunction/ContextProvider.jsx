@@ -7,9 +7,13 @@ const ContextProvider = (props) => {
     const [index, setIndex] = useState("");
     const [loading, setLoading] = useState(true);
     const [news, setNews] = useState([]);
-    setNews(fetchNews())
-    setLoading(false)
-    setIndex(0)
+    const getNews = async () => {
+      setLoading(true)
+      setNews(await fetchNews())
+      setLoading(false)
+      setIndex(0)
+      console.log(news, "test")
+    }
 
     const moveRight = () =>{
         if (index === 30) {
@@ -33,6 +37,7 @@ const ContextProvider = (props) => {
         loading,
         index,
         news,
+        getNews
     }
     return(
         <Context.Provider value={contextValue}>
