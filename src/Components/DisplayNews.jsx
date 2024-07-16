@@ -3,7 +3,7 @@ import "./DisplayNews.css";
 import { Context } from "../newsFunction/ContextProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const DisplayNews = () => {
-  const { loading, news, index } = useContext(Context);
+  const { loading, news, index, moveRight, moveLeft } = useContext(Context);
   return (
     <div className="row dn__row">
       <div className="container dn__container">
@@ -20,6 +20,10 @@ const DisplayNews = () => {
             <div className="dn__content" dangerouslySetInnerHTML={{__html:news[index].article_content}}></div>
             <a href={news[index].article_url} className="dn__link">{news[index].article_url}</a>
             <h2 className="dn__sub--title">{news[index].short_description}</h2>
+            <div className="btn__container">
+                <button onClick={()=> moveLeft()} className="previous button__search button__popular click">Previous Article</button>
+                <button onClick={()=> moveRight()} className="next button__search button__popular click">Next Article</button>
+            </div>
             </>
           )}
         </div>
