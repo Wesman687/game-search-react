@@ -22,7 +22,6 @@
     box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
 }
 .display__img {
-    position: relative;
     width: 80%;
 }
 
@@ -58,7 +57,27 @@
 .screen__image:hover {
     transform: scale(135%);
 }
-.screen__image:hover .screen__image {
+@media (max-width: 800px) {
+    .display__title {
+        font-size: 24px;
+    }
+    .display__img {
+        width: 80%;
+    }
+    .display__description--short {
+        font-size: 18px;
+    }
+    .display__wrapper p {
+        font-size: 14px;
+    }
+    .display__url { 
+        font-size: 12px;
     
-
+    }
+    .display__info {
+        font-size: 12px;
+    }
+    .screen__image { 
+        width: 75px;
+    }
 }

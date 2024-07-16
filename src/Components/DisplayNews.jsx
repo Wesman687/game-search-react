@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const DisplayNews = () => {
   const { loading, news, index } = useContext(Context);
   return (
-    <div className="row">
+    <div className="row dn__row">
       <div className="container dn__container">
         <div className="dn__wrapper">
           {loading ? (
