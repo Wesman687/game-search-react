@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './DisplayNews.css'
-import { useParams } from 'react-router-dom'
-
-const DisplayNews = ({news}) => {
-    const id = useParams()
+import { Context } from '../newsFunction/newsFunction'
+const DisplayNews = () => {    
+  const {  news, index} = useContext(Context) 
+  console.log(news)
   return (
-    <div>
-        Test
+    <div className='row'>
+        <div className="container dn__container">
+            <div className="dn__wrapper">
+                <h1 className='dn__title'></h1>
+            </div>
+        </div>
+        
       
     </div>
   )

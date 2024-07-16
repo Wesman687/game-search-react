@@ -19,8 +19,7 @@ function App() {
         <Route path="/" key="_index" element={<Landing />} />
         <Route path="/games" key="_index" element={<Game />} />
         <Route path="/games/:id" key="_index" element={<DisplayGame />} />
-        <Route path="/news" key="_index" element={<News />} />
-        <Route path='/news/article' key="_index" element={<DisplayNews  />} />
+        <Route path='/news/' key="_index" element={<DisplayNews  />} />
         
     </Routes>
     <Footer />

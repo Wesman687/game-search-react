@@ -1,54 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Context } from "../newsFunction/newsFunction";
 
 const News = () => {
   const navigate = useNavigate();
-  const [id, setId] = useState("");
-  const [index, setIndex] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [news, setNews] = useState([]);
-  function moveRight() {
-    if (index === 30) {
-      setIndex(0);
-    } else {
-      let temp = index + 1;
-      setLoading(true);
-      setIndex(temp);
-      setLoading(false);
-    }
-  }
-  function moveLeft() {
-    if (index === 0) {
-      setIndex(30);
-    } else {
-      let temp = index - 1;
-      setLoading(true);
-      setIndex(temp);
-      setLoading(false);
-    }
-  }
-  async function fetchNews() {
-    setIndex(0);
-    setLoading(true);
-    const options = {
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": "85145a591amshddc656a65b714a4p1741e9jsn73084d441036",
-        "x-rapidapi-host": "mmo-games.p.rapidapi.com",
-      },
-    };
-
-    const response = await axios.get(
-      "https://mmo-games.p.rapidapi.com/latestnews",
-      options
-    );
-    setNews(response.data);
-    setLoading(false);
-  }
+  const { loading, index, news, moveLeft, moveRight, fetchNews} = useContext(Context)
+  
   useEffect(() => {
-    fetchNews();
   }, []);
   return (
     <>
@@ -68,7 +27,7 @@ const News = () => {
           <h1 className="news__title shadowb">{news[index].title}</h1>
           <div className="new__img--wrapper"> 
             <figure className="news_imgs">
-                <Link to={`./news/article`}>
+                <Link to={`./news/`} >
               <img
                 src={news[index].main_image}
                 className="news__img"
