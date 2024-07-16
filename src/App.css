@@ -453,7 +453,7 @@ Footer
     
     box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
 }
-@media (max-width: 850px) {
+@media (max-width: 959px) {
     .search__wrapper {
         display: flex;
         padding-top: 18px;
@@ -546,4 +546,21 @@ Footer
         font-size: 16px;
     }
 
+}
+@media (max-width: 480px) {
+  .news__img {
+    border-radius: 8px;
+  }
+  .news__subtitle {
+    font-size: 8px;
+  }
+  .news__title {
+    font-size: 10px;
+    width: 80%;
+  }
+  .news__url {
+    margin: 6px;
+    text-align: center;
+    font-size: 8px;
+  }
 }
