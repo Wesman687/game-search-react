@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const News = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const News = () => {
     if (index === 0) {
       setIndex(30);
     } else {
-      let temp = index + 1;
+      let temp = index - 1;
       setLoading(true);
       setIndex(temp);
       setLoading(false);
@@ -62,16 +62,18 @@ const News = () => {
           </div>
         </div>
       ) : (
-        <div className="news__window click">
+        
+        <div className="news__window click" id="index" >
+            
           <h1 className="news__title shadowb">{news[index].title}</h1>
-          <div className="new__img--wrapper">
+          <div className="new__img--wrapper"> 
             <figure className="news_imgs">
+                <Link to={`./news/article`}>
               <img
                 src={news[index].main_image}
                 className="news__img"
-                alt=""
-                onClick={() => navigate(`./games/${news[index].id}`)}
-              ></img>
+                alt=""                
+              ></img></Link>
               <div className="arrow__wrapper">
                 <FontAwesomeIcon
                   onClick={() => moveLeft()}
@@ -92,7 +94,9 @@ const News = () => {
           <a href={news[index].url} className="news__url click">
             {news[index].article_url}
           </a>
+          
         </div>
+        
       )}
     </>
   );
