@@ -19,7 +19,7 @@
     flex-direction: column;
     width: 90%;
     padding: 32px;
-    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+    box-shadow: #fff 0px 0px 10px 10px;
 }
 .dn__row {
     margin: 0 auto;
@@ -38,6 +38,7 @@
 }
 .dn__content img {
     width: 90%;
+    box-shadow: #fff 0px 0px 10px 10px;
 }
 .dn__content p {
     width: 100%;

@@ -12,13 +12,13 @@ const Landing = () => {
         <h1 className="landing__text--title shadowb">
           America's Best Search Engine for Top Games.
         </h1>
-        <h2 className="landing__text--subtitle shadoww">
+        <h2 className="landing__text--subtitle">
           Find your new Gaming Home Here
         </h2>
 
         <News />
 
-        <button onClick={()=>navigate("/games")} className="button__search button__popular click shadowb">
+        <button onClick={()=>navigate("/games")} className="button__search button__popular click">
           Search Popular Games
         </button>
 

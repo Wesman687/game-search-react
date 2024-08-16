@@ -24,7 +24,7 @@ const News = () => {
         
         <div className="news__window click" id="index" >
             
-          <h1 className="news__title shadowb">{news[index].title}</h1>
+          <h1 className="news__title">{news[index].title}</h1>
           <div className="new__img--wrapper"> 
             <figure className="news_imgs">
                 <Link to={`./news/`} >

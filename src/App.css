@@ -41,17 +41,17 @@ h1 {
 
 h2 {
     font-size: 38px;
-    color: rgb(170, 0, 0);
+    color: white;
     text-align: center;
 }
 h3 {
     font-size: 32px;
-    color: rgb(247, 4, 4);
+    color: white;
 }
 
 p {
     font-size: 20px;
-    color: rgb(247, 4, 4);
+    color: white;
     
 }
 .row {
@@ -64,6 +64,8 @@ p {
     display: flex;
     background-color: rgb(202, 234, 241);
     width: 100%;
+    background-image: linear-gradient(to top, rgb(1, 7, 1), rgb(71, 2, 2));
+    backdrop-filter: blur(30px);
 }
 .click:hover {
     cursor: pointer;
@@ -72,10 +74,12 @@ p {
     padding: 12px 24px;
     border-radius: 24px;
     font-size: 18px;
-    background-color: rgb(253, 0, 0);
     color: #fff;
     border: 4px solid white;
-    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+    
+    background: linear-gradient(to bottom, rgb(248, 6, 6), rgb(252, 246, 246));
+    background-clip: text;
+    color: transparent;
 }
 .nav__search {
     box-shadow: rgb(0, 0, 0) 4px 4px 15px .2px;
@@ -87,6 +91,9 @@ p {
 }
 .fa-spinner {
     animation: rotate 600ms infinite linear;
+}
+.dn__title {
+    color: white !important;
 }
 
 @keyframes rotate {
@@ -108,9 +115,11 @@ Nav
 
 .nav__container {
   justify-content: space-between;
-  align-items: center;
-  box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
-  background-color: #97e1ff;
+  align-items: center;display: flex;
+  background-color: rgb(202, 234, 241);
+  width: 100%;
+  background-image: linear-gradient(to top, rgb(1, 7, 1), rgb(44, 2, 2));
+  backdrop-filter: blur(30px);
 }
 
 .button__container {
@@ -135,7 +144,7 @@ Nav
 
 .nav__link {
   padding: 18px;
-  color: rgb(253, 0, 0);
+  color: white;
   font-size: 48px;
   font-weight: bold;
   text-align: center;
@@ -230,11 +239,12 @@ News
 }
 .news__title{
   font-size: 28px;
+  color: white;
 }
 .news__url {
     font-size: 20px;
     margin: 32px 0;
-    color: rgb(170, 0, 0);
+    color: white;
 }
 
 .news__container {
@@ -272,11 +282,11 @@ News
     flex-direction: column;
     width: 50%;
     display: flex;
-    background-color: #2b0202;
-    border: 5px solid rgb(7, 6, 6);
+    background-color: black;
+    border: 5px solid rgb(255, 0, 0);
     border-radius: 24px;
     align-items: center;
-    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+    box-shadow: #fff 0px 0px 10px 10px;
     margin-top: 32px;
     padding: 32px;
     
@@ -293,6 +303,9 @@ News
 
 
 /***
+    background: linear-gradient(to bottom, rgb(248, 6, 6), rgb(252, 246, 246));
+    background-clip: text;
+    color: transparent;
 
 Popular Games
 
@@ -311,9 +324,9 @@ Popular Games
     justify-content: center;
     align-items: center;
     background-color: #2b0202;
-    border: 5px solid rgb(7, 6, 6);
+    border: 5px solid rgb(247, 4, 4);
     border-radius: 24px;
-    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+    box-shadow: #fff 0px 0px 10px 10px;
     margin: 32px;
     
     
@@ -332,7 +345,7 @@ Popular Games
     border-radius: 18px;
     margin: 32px 22px;
     transition: 350ms all ease;
-    box-shadow: rgba(255, 4, 4, 0.342) 10px 20px 50px .2px;
+    box-shadow: #fff 0px 0px 10px 10px;
     
 }
 
@@ -342,6 +355,7 @@ Popular Games
 .popular__img {
     width: 100%;
     transform: scale(120%);
+    box-shadow: #fff 0px 0px 10px 10px;
 }
 .popular__game:hover {
     transform: scale(135%);  
@@ -353,7 +367,7 @@ Popular Games
 .game__link--text {
     width: 100%;
     font-size: 12px;
-    color: rgb(247, 4, 4);
+    color: white;
     margin: 18px 0;
 }
 .popular__text--wrapper {
@@ -415,13 +429,13 @@ Search area
     margin-right: 12px;
     color: #fff;
     font-weight: bold;
-    background-color: #b80606;
+    background: linear-gradient(70deg, rgb(255, 1, 1), rgb(78, 1, 1));
     border: 1px solid black;
     cursor: pointer;
 }
 .submit__btn:hover {
-    background-color: #fff;
-    color: #f70404;
+    background: linear-gradient(to bottom, rgb(78, 1, 1), rgb(255, 1, 1));
+    color: black;
 }
 
 

@@ -18,14 +18,16 @@
     align-items: center;
     justify-content: center;
     padding: 24px 24px;    
-    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+    box-shadow: #fff 0px 0px 10px 10px;
 }
 .display__img {
     width: 80%;
+    box-shadow: #fff 0px 0px 10px 10px;
 }
 
 .display__title {
     font-size: 56px;
+    color: white;
 }
 .display__description--short {
     font-size: 32px;
@@ -50,10 +52,14 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 18px;
 }
 .screen__image {
     width: 30%;
-    padding: 12px;
+    box-shadow: #fff 0px 0px 5px 5px;
+}
+.display__wrapper li {
+    color: white;
 }
 .screen__image:hover {
     transform: scale(135%);
