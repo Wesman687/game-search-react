@@ -121,7 +121,7 @@ const Game = () => {
           ) : (
             sortedGames.map((game, index) => (
               <div key={index} className="popular__game click" onClick={() => navigate(`./${game.id}`)}>
-                <h3 className="game__link--title shadoww">{game.title}</h3>
+                <h3 className="game__link--title">{game.title}</h3>
                 <div className="popular__img--wrapper">
                   <figure className="popular__imgs">
                     <img
@@ -136,7 +136,7 @@ const Game = () => {
                     {game.game_url}
                   </a>
                   <p className="game__genre--text ">{game.genre}</p>
-                  <p className="game__developer--text shadoww">
+                  <p className="game__developer--text">
                     {game.publisher}
                   </p>
                 </div>
